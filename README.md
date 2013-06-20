@@ -45,14 +45,27 @@ That's it! Now you got started.
 
 This script support email templating. For that, first you need to map the template with the desired params.
 
+For replacing values, just map them using `{{key}}` inside your subject and/or body content.
+
+Example:
+
   ```python
-  body = "<p>Hello <b>{{name}}</b>!</p><p>How are you doing?</p>"
+  t = gmailer.Template("Metting at {{time}}") # specify 
+  t.content("Hello {{name}}! How are you doing? Don't forget our metting tomowwor at {time}.")
+  
+  g.add_recipients(gmailer.Recipient("john@gmail.com", {
+      'time': 'noon'
+    }))
+  
+  g.add_recipients(gmailer.Recipient("clit@gmail.com", {
+      'time': '14h'
+    }))
   ```
 
 Then you need to set the body type to be html, for the example showed above. Use the `set_body` method.
 
   ```python
-  g.set_body(body, True)
+  g.content(body)
   ```
   
 ###Documentation

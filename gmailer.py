@@ -35,26 +35,34 @@ class Recipient:
 		return self._params
 
 	def email(self):
-		return email
+		return self._email
 
 class Template:
 
-	_content = None
+	_subject = None
+	_body = None
 
-	def __init__(self, content):
-		self._content = content
+	def __init__(self, subject):
+		self._subject = subject
 
 	def render_params(self, params):
 		for k in params.keys():
 			self.replace_pair(k, params[k])
 
 	def replace_pair(self, key, value):
-		self._content.replace("{{"+key+"}}", value)
+		self._body.replace("{{"+key+"}}", value)
+		self._subject.replace("{{"+key+"}}", value)
 
-	def content(self, recipient = None):
+	def content(self, body):
+		self._body = body
+
+	def render(self, recipient = None):
 		if recipient is not None:
 			self.render_params(recipient.params())
-		return self._content
+		return self._body
+
+	def subject(self):
+		return self._subject
 
 class Gmailer:
 
@@ -62,13 +70,14 @@ class Gmailer:
 	_recipients = None
 	_subject = None
 	_body = None
+	_template = None
 	_html = False
 
 	def __init__(self, sender):
 		self._sender = sender
 		self._recipients = list()
 
-	def add_recipients(self, *args):
+	def add_recipient(self, *args):
 		for e in list(args):
 			self._recipients.append(e)
 
@@ -79,9 +88,18 @@ class Gmailer:
 		self._body = body
 		self._html = html
 
+	def set_template(self, template):
+		self._template = template
+
+	def get_subject(self):
+		if self._template is not None:
+			if self._template.subject() is not None:
+				return self._template.subject()
+		return self._subject
+
 	def get_content(self):
 		if self._template is not None:
-			return self._template.content()
+			return self._template.render()
 		else:
 			return self._body
 
@@ -102,7 +120,7 @@ class Gmailer:
 
 			msg['From'] = sender_email
 			msg['To'] = recipient_email
-			msg['Subject'] = self._subject
+			msg['Subject'] = self.get_subject()
 
 			msg.attach(MIMEText(self.get_content()))
 

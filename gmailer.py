@@ -31,7 +31,7 @@ class Recipient:
 	def set_params(self, params):
 		self._params = params
 
-	def params(self, params):
+	def params(self):
 		return self._params
 
 	def email(self):
@@ -40,29 +40,37 @@ class Recipient:
 class Template:
 
 	_subject = None
+	_sbjrender = None
+
 	_body = None
+	_render = None
 
 	def __init__(self, subject):
 		self._subject = subject
+		self._sbjrender = self._subject
 
 	def render_params(self, params):
 		for k in params.keys():
 			self.replace_pair(k, params[k])
 
 	def replace_pair(self, key, value):
-		self._body.replace("{{"+key+"}}", value)
-		self._subject.replace("{{"+key+"}}", value)
+		self._render = self._render.replace("{{"+str(key)+"}}", str(value))
+		self._sbjrender = self._sbjrender.replace("{{"+str(key)+"}}", str(value))
 
 	def content(self, body):
 		self._body = body
+		self._render = self._body
 
-	def render(self, recipient = None):
-		if recipient is not None:
+	def render(self, recipient):
+		self._render = self._body
+		self._sbjrender = self._subject
+
+		if isinstance(recipient, Recipient):
 			self.render_params(recipient.params())
-		return self._body
+		return self._render
 
 	def subject(self):
-		return self._subject
+		return self._sbjrender
 
 class Gmailer:
 
@@ -75,7 +83,7 @@ class Gmailer:
 
 	def __init__(self, sender):
 		self._sender = sender
-		self._recipients = list()
+		self._recipients = []
 
 	def add_recipient(self, *args):
 		for e in list(args):
@@ -97,9 +105,12 @@ class Gmailer:
 				return self._template.subject()
 		return self._subject
 
-	def get_content(self):
+	def get_content(self, r):
 		if self._template is not None:
-			return self._template.render()
+				if isinstance(r, Recipient):
+					return self._template.render(r)
+				else:
+					return self._template.render()
 		else:
 			return self._body
 
@@ -117,18 +128,19 @@ class Gmailer:
 				recipient_email = e
 
 			msg = MIMEMultipart()
+			content = self.get_content(e)
 
 			msg['From'] = sender_email
 			msg['To'] = recipient_email
 			msg['Subject'] = self.get_subject()
 
-			msg.attach(MIMEText(self.get_content()))
+			msg.attach(MIMEText(content))
 
 			mailServer = smtplib.SMTP("smtp.gmail.com", 587)
 			mailServer.ehlo()
 			mailServer.starttls()
 			mailServer.ehlo()
 			mailServer.login(sender_email, sender_passwd)
-			mailServer.sendmail(sender_email, e, msg.as_string())
+			mailServer.sendmail(sender_email, recipient_email, msg.as_string())
 			# Should be mailServer.quit(), but that crashes...
 			mailServer.close()

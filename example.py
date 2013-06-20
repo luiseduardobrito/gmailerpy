@@ -11,11 +11,17 @@ t.content("Hello {{name}}, we'll meet at {{time}} in {{location}}.")
 g.set_template(t)
 
 # add a recipient
-g.add_recipient(gmailer.Recipient("joao@gmail.com", {
-		"name": "Joao",
+g.add_recipient(gmailer.Recipient("pereira@gmail.com", {
+		"name": "Pereira",
 		"time": "noon",
 		"location": "FE-02"
 	}))
 
+g.add_recipient(gmailer.Recipient("clit@gmail.com", {
+		"name": "Clit",
+		"time": "19pm",
+		"location": "FE-01"
+	}))
+
 # send and that's it
-#g.send()
+g.send()

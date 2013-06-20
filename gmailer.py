@@ -81,7 +81,7 @@ class Gmailer:
 
 	def get_content(self):
 		if self._template is not None:
-			return self._template
+			return self._template.content()
 		else:
 			return self._body
 
@@ -104,7 +104,7 @@ class Gmailer:
 			msg['To'] = recipient_email
 			msg['Subject'] = self._subject
 
-			msg.attach(MIMEText(self._body))
+			msg.attach(MIMEText(self.get_content()))
 
 			mailServer = smtplib.SMTP("smtp.gmail.com", 587)
 			mailServer.ehlo()

@@ -1,0 +1,70 @@
+Help on module gmailer:
+
+NAME
+    gmailer
+
+FILE
+    /home/luiseduardobrito/Projects/gmailerpy/gmailer.py
+
+CLASSES
+    Gmailer
+    Recipient
+    Sender
+    Template
+    
+    class Gmailer
+     |  Methods defined here:
+     |  
+     |  __init__(self, sender)
+     |  
+     |  add_recipient(self, *args)
+     |  
+     |  get_content(self, r)
+     |  
+     |  get_subject(self)
+     |  
+     |  send(self)
+     |  
+     |  set_body(self, body, html=False)
+     |  
+     |  set_subject(self, subject)
+     |  
+     |  set_template(self, template)
+    
+    class Recipient
+     |  Methods defined here:
+     |  
+     |  __init__(self, email, params={})
+     |  
+     |  email(self)
+     |  
+     |  params(self)
+     |  
+     |  set_params(self, params)
+    
+    class Sender
+     |  Methods defined here:
+     |  
+     |  __init__(self, email, passwd)
+     |  
+     |  get_credentials(self)
+    
+    class Template
+     |  Methods defined here:
+     |  
+     |  __init__(self, subject)
+     |  
+     |  content(self, body)
+     |  
+     |  render(self, recipient)
+     |  
+     |  render_params(self, params)
+     |  
+     |  replace_pair(self, key, value)
+     |  
+     |  subject(self)
+
+DATA
+    Encoders = <email.LazyImporter object>
+
+

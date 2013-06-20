@@ -19,6 +19,24 @@ class Sender:
 	def get_credentials(self):
 		return (self._email, self._password)
 
+class Recipient:
+
+	_email = None
+	_params = None
+
+	def __init__(self, email, params = dict()):
+		self._email = email
+		self._params = params
+
+	def set_params(self, params):
+		self._params = params
+
+	def params(self, params):
+		return self._params
+
+	def email(self)
+		return email
+
 class Template:
 
 	_content = None

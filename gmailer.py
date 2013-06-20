@@ -61,7 +61,6 @@ class Gmailer:
 	_recipients = None
 	_subject = None
 	_body = None
-	_template = None
 	_html = False
 
 	def __init__(self, sender):
@@ -79,9 +78,6 @@ class Gmailer:
 		self._body = body
 		self._html = html
 
-	def set_template(self, template):
-		self._template = template
-
 	def get_content(self):
 		if self._template is not None:
 			return self._template
@@ -96,10 +92,15 @@ class Gmailer:
 
 		for e in self._recipients:
 
+			if isinstance(e, Recipient)
+				recipient_email = e.email()
+			else
+				recipient_email = e
+
 			msg = MIMEMultipart()
 
 			msg['From'] = sender_email
-			msg['To'] = e
+			msg['To'] = recipient_email
 			msg['Subject'] = self._subject
 
 			msg.attach(MIMEText(self._body))

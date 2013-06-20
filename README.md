@@ -75,4 +75,4 @@ Then you need to set the body type to be html, for the example showed above. Use
 
 ###Documentation
 
-This shall be reserved for a beatifully complete documentation that I might never write, so don't be lazy and go read the code, it's not so long!
+You can read the methods and class references in the [docs folder](https://github.com/luiseduardobrito/gmailerpy/tree/master/docs) inside the repo, in a [text-file](https://github.com/luiseduardobrito/gmailerpy/blob/master/docs/docs.out) way or in a [html-file](https://github.com/luiseduardobrito/gmailerpy/blob/master/docs/gmailer.html) way.

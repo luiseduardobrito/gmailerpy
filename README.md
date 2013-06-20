@@ -1,7 +1,9 @@
 gmailerpy
 =========
 
-gmailer.py - easy gmail bulk send in python
+gmailer.py - simple script for bulk sending using gmail
+
+More info: http://luiseduardobrito.github.io
 
 
 ###Getting Started

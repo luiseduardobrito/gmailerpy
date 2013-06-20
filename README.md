@@ -67,7 +67,12 @@ Then you need to set the body type to be html, for the example showed above. Use
   ```python
   g.content(body)
   ```
-  
+###Roadmap
+
+1. Create a method for importing all config and recipients from json file
+2. HTML body messages deep tests (not tested even superficially)
+
+
 ###Documentation
 
 This shall be reserved for a beatifully complete documentation that I might never write, so don't be lazy and go read the code, it's not so long!

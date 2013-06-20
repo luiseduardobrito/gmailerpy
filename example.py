@@ -6,7 +6,7 @@ s = gmailer.Sender("email@gmail.com", "password")
 g = gmailer.Gmailer(s)
 
 # create a new template
-t = gmailer.Template("Metting today at {{time}}")
+t = gmailer.Template("Meeting today at {{time}}")
 t.content("Hello {{name}}, we'll meet at {{time}} in {{location}}.")
 g.set_template(t)
 

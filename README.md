@@ -3,7 +3,7 @@ gmailerpy
 
 gmailer.py - simple script for bulk sending using gmail
 
-More info: http://luiseduardobrito.github.io
+More info at my [personal page](http://about.me/luiseduardobrito) or at my [github page](http://luiseduardobrito.github.io)
 
 
 ###Getting Started

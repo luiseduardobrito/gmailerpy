@@ -9,10 +9,10 @@ gmailer.py - easy gmail bulk send in python
 
 Send email to a lot of recipients easily using python, json and gmail.
 
-First, clone the repo and extract somewhere. Then, import in your python script:
+First, clone the repo or download the zip and extract somewhere. Then, import it in your python as an external script:
 
  ```python
-  from google import gmailer
+  import gmailer
       
   u = gmailer.User("user@gmail.com", "password")
   g = gmailer.Gmailer(u)

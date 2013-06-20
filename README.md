@@ -50,7 +50,7 @@ For replacing values, just map them using `{{key}}` inside your subject and/or b
 Example:
 
   ```python
-  t = gmailer.Template("Metting at {{time}}") # specify 
+  t = gmailer.Template("Metting at {{time}}") # specify email subject
   t.content("Hello {{name}}! How are you doing? Don't forget our metting tomowwor at {time}.")
   
   g.add_recipients(gmailer.Recipient("john@gmail.com", {

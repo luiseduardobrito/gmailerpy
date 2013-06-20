@@ -34,7 +34,7 @@ class Recipient:
 	def params(self, params):
 		return self._params
 
-	def email(self)
+	def email(self):
 		return email
 
 class Template:
@@ -51,9 +51,10 @@ class Template:
 	def replace_pair(self, key, value):
 		self._content.replace("{{"+key+"}}", value)
 
-	def content(self):
+	def content(self, recipient = None):
+		if recipient is not None:
+			self.render_params(recipient.params())
 		return self._content
-
 
 class Gmailer:
 

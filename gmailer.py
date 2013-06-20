@@ -45,7 +45,7 @@ class Template:
 		self._content = content
 
 	def render_params(self, params):
-		for k in params.keys()
+		for k in params.keys():
 			self.replace_pair(k, params[k])
 
 	def replace_pair(self, key, value):
@@ -82,7 +82,7 @@ class Gmailer:
 	def get_content(self):
 		if self._template is not None:
 			return self._template
-		else
+		else:
 			return self._body
 
 	def send(self):
@@ -93,9 +93,9 @@ class Gmailer:
 
 		for e in self._recipients:
 
-			if isinstance(e, Recipient)
+			if isinstance(e, Recipient):
 				recipient_email = e.email()
-			else
+			else:
 				recipient_email = e
 
 			msg = MIMEMultipart()

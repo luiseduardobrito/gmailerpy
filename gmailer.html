@@ -1,0 +1,115 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module gmailer</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>gmailer</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/luiseduardobrito/Projects/gmailerpy/gmailer.py">/home/luiseduardobrito/Projects/gmailerpy/gmailer.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="smtplib.html">smtplib</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="gmailer.html#Gmailer">Gmailer</a>
+</font></dt><dt><font face="helvetica, arial"><a href="gmailer.html#Recipient">Recipient</a>
+</font></dt><dt><font face="helvetica, arial"><a href="gmailer.html#Sender">Sender</a>
+</font></dt><dt><font face="helvetica, arial"><a href="gmailer.html#Template">Template</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Gmailer">class <strong>Gmailer</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Gmailer-__init__"><strong>__init__</strong></a>(self, sender)</dt></dl>
+
+<dl><dt><a name="Gmailer-add_recipient"><strong>add_recipient</strong></a>(self, *args)</dt></dl>
+
+<dl><dt><a name="Gmailer-get_content"><strong>get_content</strong></a>(self, r)</dt></dl>
+
+<dl><dt><a name="Gmailer-get_subject"><strong>get_subject</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Gmailer-send"><strong>send</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Gmailer-set_body"><strong>set_body</strong></a>(self, body, html<font color="#909090">=False</font>)</dt></dl>
+
+<dl><dt><a name="Gmailer-set_subject"><strong>set_subject</strong></a>(self, subject)</dt></dl>
+
+<dl><dt><a name="Gmailer-set_template"><strong>set_template</strong></a>(self, template)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Recipient">class <strong>Recipient</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Recipient-__init__"><strong>__init__</strong></a>(self, email, params<font color="#909090">={}</font>)</dt></dl>
+
+<dl><dt><a name="Recipient-email"><strong>email</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Recipient-params"><strong>params</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Recipient-set_params"><strong>set_params</strong></a>(self, params)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Sender">class <strong>Sender</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Sender-__init__"><strong>__init__</strong></a>(self, email, passwd)</dt></dl>
+
+<dl><dt><a name="Sender-get_credentials"><strong>get_credentials</strong></a>(self)</dt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Template">class <strong>Template</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Template-__init__"><strong>__init__</strong></a>(self, subject)</dt></dl>
+
+<dl><dt><a name="Template-content"><strong>content</strong></a>(self, body)</dt></dl>
+
+<dl><dt><a name="Template-render"><strong>render</strong></a>(self, recipient)</dt></dl>
+
+<dl><dt><a name="Template-render_params"><strong>render_params</strong></a>(self, params)</dt></dl>
+
+<dl><dt><a name="Template-replace_pair"><strong>replace_pair</strong></a>(self, key, value)</dt></dl>
+
+<dl><dt><a name="Template-subject"><strong>subject</strong></a>(self)</dt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Encoders</strong> = &lt;email.LazyImporter object&gt;</td></tr></table>
+</body></html>

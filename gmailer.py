@@ -19,6 +19,24 @@ class User:
 	def get_credentials(self):
 		return (self._email, self._password)
 
+class Template:
+
+	_content = None
+
+	def __init__(self, content):
+		self._content = content
+
+	def render_params(self, params):
+		for k in params.keys()
+			self.replace_pair(k, params[k])
+
+	def replace_pair(self, key, value):
+		self._content.replace("{{"+key+"}}", value)
+
+	def content(self):
+		return self._content
+
+
 class Gmailer:
 
 	_sender = None

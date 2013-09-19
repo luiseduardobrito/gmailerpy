@@ -19,7 +19,7 @@ First, clone the repo or download the zip and extract somewhere. Then, import it
   u = gmailer.User("user@gmail.com", "password")
   g = gmailer.Gmailer(u)
       
-  g.add_recipients("joaochencci@gmail.com")
+  g.add_recipients("joao@gmail.com")
   g.set_subject("testando o script")
   g.set_body("ola joao")
       
@@ -45,19 +45,19 @@ That's it! Now you got started.
 
 This script support email templating. For that, first you need to map the template with the desired params.
 
-For replacing values, just map them using `{{key}}` inside your subject and/or body content.
+For replacing values, just map them using ```{{key}}``` inside your subject and/or body content.
 
 Example:
 
   ```python
   t = gmailer.Template("Metting at {{time}}") # specify email subject
-  t.content("Hello {{name}}! How are you doing? Don't forget our metting tomowwor at {time}.")
+  t.content("Hello {{name}}! How are you doing? Don't forget our metting tomowwor at {{time}}.")
   
   g.add_recipients(gmailer.Recipient("john@gmail.com", {
       'time': 'noon'
     }))
   
-  g.add_recipients(gmailer.Recipient("clit@gmail.com", {
+  g.add_recipients(gmailer.Recipient("clits@gmail.com", {
       'time': '14h'
     }))
   ```
